@@ -63,6 +63,37 @@
             color: #006BA6;
         }
         
+        /* Hamburger menu for mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #003057;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
         /* Main Content */
         main {
             margin-top: 70px;
@@ -402,8 +433,34 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
             nav ul {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav a {
+                padding: 0.5rem 0;
+                display: block;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
             }
             
             .hero h1 {
@@ -451,6 +508,11 @@
     <header>
         <nav>
             <div class="logo">Stora Konferensen 2025</div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul>
                 <li><a href="#hem" onclick="showSection('hem')">Hem</a></li>
                 <li><a href="#program" onclick="showSection('program')">Program</a></li>
@@ -931,6 +993,14 @@
     </footer>
 
     <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const menuToggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+        
         // Navigation
         function showSection(sectionId) {
             // Hide all sections
@@ -945,6 +1015,12 @@
             if (sectionId !== 'hem') {
                 document.getElementById(sectionId).classList.remove('hidden');
             }
+            
+            // Close mobile menu if open
+            const menu = document.querySelector('nav ul');
+            const menuToggle = document.querySelector('.menu-toggle');
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active');
             
             // Scroll to top
             window.scrollTo(0, 0);
