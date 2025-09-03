@@ -1019,8 +1019,10 @@
             // Close mobile menu if open
             const menu = document.querySelector('nav ul');
             const menuToggle = document.querySelector('.menu-toggle');
-            menu.classList.remove('active');
-            menuToggle.classList.remove('active');
+            if (menu && menuToggle) {
+                menu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
             
             // Scroll to top
             window.scrollTo(0, 0);
