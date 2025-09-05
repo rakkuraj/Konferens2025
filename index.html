@@ -467,11 +467,6 @@
                 font-size: 2rem;
             }
             
-            .countdown {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
             .schedule-item {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -526,24 +521,9 @@
     <main>
         <!-- Hem Section -->
         <section id="hem" class="hero">
-            <h1>Stora Konferensen 2025</h1>
+            <h1>¡Bienvenidos a Mallorca!</h1>
             <p class="subtitle">Walk & Talk - Palma de Mallorca</p>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">12-15 september 2025 • Be Live Experience Costa Palma</p>
-            
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">87</div>
-                    <div class="countdown-label">Dagar</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">14</div>
-                    <div class="countdown-label">Timmar</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">32</div>
-                    <div class="countdown-label">Minuter</div>
-                </div>
-            </div>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">Stora konferensen 12-15 september 2025</p>
             
             <div>
                 <a href="#program" class="btn" onclick="showSection('program')">Se programmet</a>
@@ -556,10 +536,10 @@
             <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Konferensprogram</h2>
             
             <div class="program-tabs">
-                <button class="tab active" onclick="showDay('dag1')">Fredag 12/9</button>
-                <button class="tab" onclick="showDay('dag2')">Lördag 13/9</button>
-                <button class="tab" onclick="showDay('dag3')">Söndag 14/9</button>
-                <button class="tab" onclick="showDay('dag4')">Måndag 15/9</button>
+                <button class="tab active" onclick="showDay('dag1', this)">Fredag 12/9</button>
+                <button class="tab" onclick="showDay('dag2', this)">Lördag 13/9</button>
+                <button class="tab" onclick="showDay('dag3', this)">Söndag 14/9</button>
+                <button class="tab" onclick="showDay('dag4', this)">Måndag 15/9</button>
             </div>
             
             <div id="dag1" class="schedule active">
@@ -627,7 +607,7 @@
                         <div class="schedule-time">12:00-13:00</div>
                         <div>
                             <strong>Lunch</strong>
-                            <p><a href="https://www.google.com/maps/place/La+Paloma/@39.5690898,2.6426609,17z/data=!3m1!4b1!4m6!3m5!1s0x12979244c10affab:0x9c118347ad7f450!8m2!3d39.5690898!4d2.6452358!16s%2Fg%2F1tdt3l7k?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6;">La Paloma</a> (egen transport). Information om eftermiddagen.</p>
+                            <p><a href="https://www.google.com/maps/place/La+Paloma/@39.5690898,2.6426609,17z/data=!3m1!4b1!4m6!3m5!1s0x12979244c10affab:0x9c118347ad7f450!8m2!3d39.5690898!4d2.6452358!16s%2Fg%2F1tdt3l7k?entry=ttu&g_ep=EgoyMDI5MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6;">La Paloma</a> (egen transport). Information om eftermiddagen.</p>
                         </div>
                     </div>
                     <div class="schedule-item">
@@ -924,7 +904,7 @@
                     <p>Middag fredag kväll</p>
                 </div>
                 <div class="card">
-                    <h4 style="color: #006BA6;"><a href="https://www.google.com/maps/place/La+Paloma/@39.5690898,2.6426609,17z/data=!3m1!4b1!4m6!3m5!1s0x12979244c10affab:0x9c118347ad7f450!8m2!3d39.5690898!4d2.6452358!16s%2Fg%2F1tdt3l7k?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6; text-decoration: none;">La Paloma 📍</a></h4>
+                    <h4 style="color: #006BA6;"><a href="https://www.google.com/maps/place/La+Paloma/@39.5690898,2.6426609,17z/data=!3m1!4b1!4m6!3m5!1s0x12979244c10affab:0x9c118347ad7f450!8m2!3d39.5690898!4d2.6452358!16s%2Fg%2F1tdt3l7k?entry=ttu&g_ep=EgoyMDI5MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6; text-decoration: none;">La Paloma 📍</a></h4>
                     <p>Lunch lördag i Palma centrum</p>
                 </div>
                 <div class="card">
@@ -1052,32 +1032,6 @@
             alert('Tack för din anmälan! Du kommer att få en bekräftelse via e-post inom kort.');
             event.target.reset();
         }
-
-        // Countdown timer
-        function updateCountdown() {
-            const conferenceDate = new Date('2025-09-12T12:00:00');
-            const now = new Date();
-            const diff = conferenceDate - now;
-            
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-            } else {
-                // Konferensen har redan varit
-                document.getElementById('days').textContent = "0";
-                document.getElementById('hours').textContent = "0";
-                document.getElementById('minutes').textContent = "0";
-            }
-        }
-
-        // Update countdown every minute
-        setInterval(updateCountdown, 60000);
-        updateCountdown();
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
