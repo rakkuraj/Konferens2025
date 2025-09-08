@@ -291,6 +291,15 @@
             animation: fadeIn 0.5s ease-out;
         }
         
+        .grupp-content {
+            display: none;
+        }
+        
+        .grupp-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
         .schedule-item {
             display: flex;
             gap: 2rem;
@@ -680,7 +689,16 @@
         <section id="gruppuppgifter" class="hidden">
             <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Gruppuppgifter</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="program-tabs">
+                <button class="tab active" onclick="showGruppTab('grupp-fredag', this)">Grupper Fredag</button>
+                <button class="tab" onclick="showGruppTab('grupp-lordag', this)">Grupper Lördag</button>
+                <button class="tab" onclick="showGruppTab('uppgift-fredag', this)">Uppgift Fredag</button>
+                <button class="tab" onclick="showGruppTab('uppgift-lordag-fm', this)">Lördag FM</button>
+                <button class="tab" onclick="showGruppTab('uppgift-lordag-em', this)">Lördag EM</button>
+                <button class="tab" onclick="showGruppTab('filmtavling', this)">Filmtävling</button>
+            </div>
+            
+            <div id="grupp-fredag" class="grupp-content active">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">👥 Gruppindelning fredag</h3>
                     <div style="line-height: 1.8;">
@@ -712,7 +730,9 @@
                         Hanna, Dan, Emil</p>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div id="grupp-lordag" class="grupp-content">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">👥 Gruppindelning lördag</h3>
                     <div style="line-height: 1.8;">
@@ -744,7 +764,9 @@
                         William, Stina, Isabelle, Henrik</p>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div id="uppgift-fredag" class="grupp-content">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">📝 Uppgift fredag</h3>
                     <div style="line-height: 1.8;">
@@ -758,7 +780,7 @@
                             <p style="font-weight: bold; margin-bottom: 0.5rem;">Tillgängligt material:</p>
                             <ul style="list-style: none; padding-left: 0;">
                                 <li>• <a href="https://itid.se/wp-content/uploads/2025/09/podavsnitt-1_framtid-dar-vi-bor.mp3" target="_blank" style="color: #006BA6;">Podavsnitt 1</a></li>
-                                <li>• Gruppindelning fredag (se ovan)</li>
+                                <li>• Gruppindelning fredag (se fliken Grupper Fredag)</li>
                             </ul>
                         </div>
                         
@@ -777,7 +799,9 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div id="uppgift-lordag-fm" class="grupp-content">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">📝 Uppgift lördag förmiddag</h3>
                     <div style="line-height: 1.8;">
@@ -790,7 +814,7 @@
                         <div style="background: #F3F3EF; padding: 1rem; border-radius: 4px; margin: 1.5rem 0;">
                             <p style="font-weight: bold; margin-bottom: 0.5rem;">Tillgängligt material:</p>
                             <ul style="list-style: none; padding-left: 0;">
-                                <li>• Ny gruppindelning (se ovan)</li>
+                                <li>• Ny gruppindelning (se fliken Grupper Lördag)</li>
                                 <li>• Podavsnitt 2 (länk kommer)</li>
                                 <li>• Tidslinje (bild)</li>
                             </ul>
@@ -818,7 +842,9 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div id="uppgift-lordag-em" class="grupp-content">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">📝 Uppgift lördag eftermiddag</h3>
                     <div style="line-height: 1.8;">
@@ -864,7 +890,9 @@
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div id="filmtavling" class="grupp-content">
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1.5rem;">🎬 Filmtävling</h3>
                     <div style="line-height: 1.8;">
@@ -1258,17 +1286,33 @@
             window.scrollTo(0, 0);
         }
 
-        // Program tabs
-        function showDay(dayId) {
+        // Program tabs - RÄTTAD FUNKTION
+        function showDay(dayId, clickedTab) {
             // Update tabs
-            const tabs = document.querySelectorAll('.tab');
+            const tabs = document.querySelectorAll('.program-tabs .tab');
             tabs.forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
+            clickedTab.classList.add('active');
             
             // Update schedules
             const schedules = document.querySelectorAll('.schedule');
             schedules.forEach(schedule => schedule.classList.remove('active'));
             document.getElementById(dayId).classList.add('active');
+        }
+
+        // Gruppuppgifter tabs - NY FUNKTION SOM SAKNADES
+        function showGruppTab(tabId, clickedTab) {
+            // Update tabs
+            const tabs = clickedTab.parentElement.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            clickedTab.classList.add('active');
+            
+            // Update content
+            const contents = document.querySelectorAll('.grupp-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
         }
 
         // Form submission
