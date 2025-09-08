@@ -300,6 +300,15 @@
             animation: fadeIn 0.5s ease-out;
         }
         
+        .praktisk-content {
+            display: none;
+        }
+        
+        .praktisk-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
         .schedule-item {
             display: flex;
             gap: 2rem;
@@ -541,6 +550,246 @@
             </div>
         </section>
 
+        <!-- Praktisk Info Section -->
+        <section id="praktisk" class="hidden">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Praktisk Information</h2>
+            
+            <div class="program-tabs">
+                <button class="tab active" onclick="showPraktiskTab('resa-transport', this)">Resa & Transport</button>
+                <button class="tab" onclick="showPraktiskTab('boende-mat', this)">Boende & Mat</button>
+                <button class="tab" onclick="showPraktiskTab('packning', this)">Packning & Kläder</button>
+            </div>
+            
+            <div id="resa-transport" class="praktisk-content active">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">✈️ Flyginformation</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Alla flyg går med SAS och mellanlandar i Stockholm Arlanda</strong></p>
+                        
+                        <details style="margin-bottom: 1rem;">
+                            <summary><strong>Stockholm/Sandviken (8 personer)</strong></summary>
+                            <div style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <p><strong>Utresa fredag 12/9:</strong><br>
+                                SK1805 ARN 08:30 → PMI 12:10</p>
+                                <p><strong>Hemresa måndag 15/9:</strong><br>
+                                SK1810 PMI 11:10 → ARN 14:55</p>
+                            </div>
+                        </details>
+                        
+                        <details style="margin-bottom: 1rem;">
+                            <summary><strong>Luleå (11 personer)</strong></summary>
+                            <div style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <p><strong>Utresa fredag 12/9:</strong><br>
+                                SK001 LLA 06:05 → ARN 07:25<br>
+                                SK1805 ARN 08:30 → PMI 12:10</p>
+                                <p><strong>Hemresa måndag 15/9:</strong><br>
+                                SK1810 PMI 11:10 → ARN 14:55<br>
+                                SK012 ARN 15:45 → LLA 17:00</p>
+                            </div>
+                        </details>
+                        
+                        <details style="margin-bottom: 1rem;">
+                            <summary><strong>Skellefteå (9 personer)</strong></summary>
+                            <div style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <p><strong>Utresa fredag 12/9:</strong><br>
+                                SK1011 SFT 06:20 → ARN 07:30<br>
+                                SK1805 ARN 08:30 → PMI 12:10</p>
+                                <p><strong>Hemresa måndag 15/9:</strong><br>
+                                SK1810 PMI 11:10 → ARN 14:55<br>
+                                SK1020 ARN 17:50 → SFT 19:00</p>
+                            </div>
+                        </details>
+                        
+                        <details style="margin-bottom: 1rem;">
+                            <summary><strong>Umeå (10 personer)</strong></summary>
+                            <div style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <p><strong>Utresa fredag 12/9:</strong><br>
+                                SK027 UME 06:20 → ARN 07:25<br>
+                                SK1805 ARN 08:30 → PMI 12:10</p>
+                                <p><strong>Hemresa måndag 15/9:</strong><br>
+                                SK1810 PMI 11:10 → ARN 14:55<br>
+                                SK2030 ARN 18:15 → UME 19:15</p>
+                            </div>
+                        </details>
+                        
+                        <details style="margin-bottom: 1rem;">
+                            <summary><strong>Sundsvall (1 person)</strong></summary>
+                            <div style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <p><strong>Utresa fredag 12/9:</strong><br>
+                                SK2047 SDL 06:15 → ARN 07:20<br>
+                                SK1805 ARN 08:30 → PMI 12:10</p>
+                                <p><strong>Hemresa måndag 15/9:</strong><br>
+                                SK1810 PMI 11:10 → ARN 14:55<br>
+                                <strong>TÅG Stockholm Arlanda - Sundsvall</strong><br>
+                                16:42 → 19:53</p>
+                            </div>
+                        </details>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">🚗 Transfer & Transport</h3>
+                        <p style="margin-bottom: 1.5rem;"><strong>All transport är organiserad och ingår i konferensen.</strong></p>
+                        
+                        <div style="background: #F3F3EF; padding: 1.5rem; border-radius: 4px;">
+                            <h4 style="color: #F2A900; margin-bottom: 1rem;">🚌 Transportschema</h4>
+                            
+                            <div style="margin-bottom: 1.25rem;">
+                                <strong style="color: #003057;">Fredag 12/9:</strong>
+                                <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
+                                    • 13:00 - Transfer: Flygplats → Hotell<br>
+                                    • 19:30 - Buss: Hotell → Hostal Cuba (middag)<br>
+                                    • 23:00 - Buss: Hostal Cuba → Hotell
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.25rem;">
+                                <strong style="color: #003057;">Lördag 13/9:</strong>
+                                <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
+                                    • 18:30 - Buss: Hotell → Lume & Co (middag)<br>
+                                    • 21:00 - Buss: Lume & Co → Hotell
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.25rem;">
+                                <strong style="color: #003057;">Söndag 14/9:</strong>
+                                <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
+                                    • 15:00 - Buss: Hotell → Katamaranen<br>
+                                    • 20:30 - Buss: Katamaranen → Hotell
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <strong style="color: #003057;">Måndag 15/9:</strong>
+                                <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
+                                    • 08:30 - Transfer: Hotell → Flygplats
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 1rem; font-style: italic; color: #666;">
+                            OBS: Samling i hotellets lobby 10 minuter innan avresa.
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">🏖️ Aktiviteter</h3>
+                        <p>Konferensaktiviteter:</p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Walk & Talk-sessioner</li>
+                            <li>✓ Orientering med filmtema</li>
+                            <li>✓ Katamarantur söndag eftermiddag</li>
+                            <li>✓ Egen tid för strand och utforskning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="boende-mat" class="praktisk-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">🏨 Boende</h3>
+                        <p>Alla deltagare bor på Be Live Experience Costa Palma.</p>
+                        <p><strong>Incheckning:</strong> Från kl 17:30 den 12 september (bagage kan lämnas tidigare)</p>
+                        <p><strong>Utcheckning:</strong> Senast kl 11:00 den 15 september</p>
+                        
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <p><strong>Rumsfördelning (dubbelrum):</strong></p>
+                            <div style="margin-top: 0.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.9rem;">
+                                <div>• Anna Samuelsson (enkelrum)</div>
+                                <div>• Annica Wållberg & Johanna Liljedahl</div>
+                                <div>• Dan Bergman & Jonathan Van Hoof</div>
+                                <div>• Fredrik Lindgren & William Stokke</div>
+                                <div>• John Näslund & Henrik Pettersson</div>
+                                <div>• Magnus Olsson & Mikael Karlsson</div>
+                                <div>• Per Karlsson & Lars-Erik Lindström</div>
+                                <div>• Tommy Stridh & Tony Elingstam</div>
+                                <div>• Pernilla Lirell & Maria Öqvist</div>
+                                <div>• Isabelle Fredriksson & Sofia Franzén</div>
+                                <div>• Caroline Häggström & Hanna Sundling</div>
+                                <div>• Magnus Andersson & Emil Larson</div>
+                                <div>• Sebastian Rydenfalk & Hans Martin Olsson Saebø</div>
+                                <div>• Matilda Höök & Stina Lindberg</div>
+                                <div>• Fredrik Johansson & Måns Montell</div>
+                                <div>• Robin Bergström & David Johansson</div>
+                                <div>• Fredrik Munkby & Anders Sörqvist</div>
+                                <div>• Stefan Almarlind & Ola Hertzberg</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">🍽️ Mat & Dryck</h3>
+                        <p>Följande måltider ingår:</p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Frukost på hotellet (serveras från 07:30 varje dag)</li>
+                            <li>✓ Luncher enligt program</li>
+                            <li>✓ Middagar fredag och lördag</li>
+                            <li>✓ Middag söndag ombord på katamaranen</li>
+                        </ul>
+                        <p><strong>Alkohol:</strong> Företaget bjuder på två enheter alkohol per person till middagarna (t.ex. två öl eller två glas vin)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="packning" class="praktisk-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">👔 Klädkod</h3>
+                        <p><strong>Walk & Talk-passen:</strong> Svala och bekväma promenadkläder och skor</p>
+                        <p><strong>Middagar:</strong> Smart casual</p>
+                        <p><strong>Katamarantur:</strong> Vindtåliga kläder, solskydd</p>
+                        <p><strong>Tips:</strong> Ha alltid med badkläder!</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">📱 Vad du behöver</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Bekväma promenadskor (viktigt!)</li>
+                            <li>✓ Solskydd och solglasögon</li>
+                            <li>✓ Badkläder</li>
+                            <li>✓ Vindtålig jacka för båtturen</li>
+                            <li>✓ Vattenflaska för promenaderna</li>
+                            <li>✓ Väska eller ryggsäck för dagsutflykter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #006BA6; margin-bottom: 1rem;">🧳 Packlista</h3>
+                        <p><strong>Kläder:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Bekväma promenadkläder för 3 dagar</li>
+                            <li>✓ Svala kläder (det är varmt i september)</li>
+                            <li>✓ Vindtålig jacka</li>
+                            <li>✓ Kläder för middagar (smart casual)</li>
+                            <li>✓ Badkläder</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Skor & Tillbehör:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Bekväma promenadskor (gärna ingångna)</li>
+                            <li>✓ Sandaler/flip-flops för strand</li>
+                            <li>✓ Skor för middagar</li>
+                            <li>✓ Solglasögon</li>
+                            <li>✓ Hatt/keps</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Övrigt:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✓ Pass eller nationellt ID-kort</li>
+                            <li>✓ Solskyddsfaktor (minst SPF 30)</li>
+                            <li>✓ After sun</li>
+                            <li>✓ Vattenflaska</li>
+                            <li>✓ Dagsryggsäck</li>
+                            <li>✓ Mobiltelefon, hörlurar och laddare</li>
+                            <li>✓ Anteckningsbok och penna</li>
+                            <li>✓ Eventuell medicin</li>
+                            <li>✓ Europeiskt sjukförsäkringskort</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Program Section -->
         <section id="program" class="hidden">
             <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Konferensprogram</h2>
@@ -591,7 +840,7 @@
                         <div class="schedule-time">Kväll</div>
                         <div>
                             <strong>Middag</strong>
-                            <p><a href="https://www.google.com/maps/place/Hotel+Hostal+Cuba/@39.5702062,2.6185521,14z/data=!4m9!3m8!1s0x12979267fd5c4225:0xacec680fb0d638f1!5m2!4m1!1i2!8m2!3d39.5702062!4d2.6391515!16s%2Fg%2F1tf8j3_1?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6;">Hostal Cuba</a></p>
+                            <p><a href="https://www.google.com/maps/place/Hotel+Hostal+Cuba/@39.5702062,2.6185521,14z/data=!4m9!3m8!1s0x12979267fd5c4225:0xacec680fb0d638f1!5m2!4m1!1i2!8m2!3d39.5702062!4d2.6391515!16s%2Fg%2F1tf8j3_1?entry=ttu&g_ep=EgoyMDI5MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #006BA6;">Hostal Cuba</a></p>
                         </div>
                     </div>
                 </div>
@@ -948,230 +1197,6 @@
             </div>
         </section>
 
-        <!-- Praktisk Info Section -->
-        <section id="praktisk" class="hidden">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Praktisk Information</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">✈️ Flyginformation</h3>
-                    <p style="margin-bottom: 1rem;"><strong>Alla flyg går med SAS och mellanlandar i Stockholm Arlanda</strong></p>
-                    
-                    <details style="margin-bottom: 1rem;">
-                        <summary><strong>Stockholm/Sandviken (8 personer)</strong></summary>
-                        <div style="margin-top: 0.5rem; padding-left: 1rem;">
-                            <p><strong>Utresa fredag 12/9:</strong><br>
-                            SK1805 ARN 08:30 → PMI 12:10</p>
-                            <p><strong>Hemresa måndag 15/9:</strong><br>
-                            SK1810 PMI 11:10 → ARN 14:55</p>
-                        </div>
-                    </details>
-                    
-                    <details style="margin-bottom: 1rem;">
-                        <summary><strong>Luleå (11 personer)</strong></summary>
-                        <div style="margin-top: 0.5rem; padding-left: 1rem;">
-                            <p><strong>Utresa fredag 12/9:</strong><br>
-                            SK001 LLA 06:05 → ARN 07:25<br>
-                            SK1805 ARN 08:30 → PMI 12:10</p>
-                            <p><strong>Hemresa måndag 15/9:</strong><br>
-                            SK1810 PMI 11:10 → ARN 14:55<br>
-                            SK012 ARN 15:45 → LLA 17:00</p>
-                        </div>
-                    </details>
-                    
-                    <details style="margin-bottom: 1rem;">
-                        <summary><strong>Skellefteå (9 personer)</strong></summary>
-                        <div style="margin-top: 0.5rem; padding-left: 1rem;">
-                            <p><strong>Utresa fredag 12/9:</strong><br>
-                            SK1011 SFT 06:20 → ARN 07:30<br>
-                            SK1805 ARN 08:30 → PMI 12:10</p>
-                            <p><strong>Hemresa måndag 15/9:</strong><br>
-                            SK1810 PMI 11:10 → ARN 14:55<br>
-                            SK1020 ARN 17:50 → SFT 19:00</p>
-                        </div>
-                    </details>
-                    
-                    <details style="margin-bottom: 1rem;">
-                        <summary><strong>Umeå (10 personer)</strong></summary>
-                        <div style="margin-top: 0.5rem; padding-left: 1rem;">
-                            <p><strong>Utresa fredag 12/9:</strong><br>
-                            SK027 UME 06:20 → ARN 07:25<br>
-                            SK1805 ARN 08:30 → PMI 12:10</p>
-                            <p><strong>Hemresa måndag 15/9:</strong><br>
-                            SK1810 PMI 11:10 → ARN 14:55<br>
-                            SK2030 ARN 18:15 → UME 19:15</p>
-                        </div>
-                    </details>
-                    
-                    <details style="margin-bottom: 1rem;">
-                        <summary><strong>Sundsvall (1 person)</strong></summary>
-                        <div style="margin-top: 0.5rem; padding-left: 1rem;">
-                            <p><strong>Utresa fredag 12/9:</strong><br>
-                            SK2047 SDL 06:15 → ARN 07:20<br>
-                            SK1805 ARN 08:30 → PMI 12:10</p>
-                            <p><strong>Hemresa måndag 15/9:</strong><br>
-                            SK1810 PMI 11:10 → ARN 14:55<br>
-                            <strong>TÅG Stockholm Arlanda - Sundsvall</strong><br>
-                            16:42 → 19:53</p>
-                        </div>
-                    </details>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🚗 Transfer & Transport</h3>
-                    <p style="margin-bottom: 1.5rem;"><strong>All transport är organiserad och ingår i konferensen.</strong></p>
-                    
-                    <div style="background: #F3F3EF; padding: 1.5rem; border-radius: 4px;">
-                        <h4 style="color: #F2A900; margin-bottom: 1rem;">🚌 Transportschema</h4>
-                        
-                        <div style="margin-bottom: 1.25rem;">
-                            <strong style="color: #003057;">Fredag 12/9:</strong>
-                            <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
-                                • 13:00 - Transfer: Flygplats → Hotell<br>
-                                • 19:30 - Buss: Hotell → Hostal Cuba (middag)<br>
-                                • 23:00 - Buss: Hostal Cuba → Hotell
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 1.25rem;">
-                            <strong style="color: #003057;">Lördag 13/9:</strong>
-                            <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
-                                • 18:30 - Buss: Hotell → Lume & Co (middag)<br>
-                                • 21:00 - Buss: Lume & Co → Hotell
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 1.25rem;">
-                            <strong style="color: #003057;">Söndag 14/9:</strong>
-                            <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
-                                • 15:00 - Buss: Hotell → Katamaranen<br>
-                                • 20:30 - Buss: Katamaranen → Hotell
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <strong style="color: #003057;">Måndag 15/9:</strong>
-                            <div style="padding-left: 1rem; margin-top: 0.5rem; line-height: 1.8;">
-                                • 08:30 - Transfer: Hotell → Flygplats
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <p style="margin-top: 1rem; font-style: italic; color: #666;">
-                        OBS: Samling i hotellets lobby 10 minuter innan avresa.
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🏨 Boende</h3>
-                    <p>Alla deltagare bor på Be Live Experience Costa Palma.</p>
-                    <p><strong>Incheckning:</strong> Från kl 17:30 den 12 september (bagage kan lämnas tidigare)</p>
-                    <p><strong>Utcheckning:</strong> Senast kl 11:00 den 15 september</p>
-                    
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                        <p><strong>Rumsfördelning (dubbelrum):</strong></p>
-                        <div style="margin-top: 0.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.9rem;">
-                            <div>• Anna Samuelsson (enkelrum)</div>
-                            <div>• Annica Wållberg & Johanna Liljedahl</div>
-                            <div>• Dan Bergman & Jonathan Van Hoof</div>
-                            <div>• Fredrik Lindgren & William Stokke</div>
-                            <div>• John Näslund & Henrik Pettersson</div>
-                            <div>• Magnus Olsson & Mikael Karlsson</div>
-                            <div>• Per Karlsson & Lars-Erik Lindström</div>
-                            <div>• Tommy Stridh & Tony Elingstam</div>
-                            <div>• Pernilla Lirell & Maria Öqvist</div>
-                            <div>• Isabelle Fredriksson & Sofia Franzén</div>
-                            <div>• Caroline Häggström & Hanna Sundling</div>
-                            <div>• Magnus Andersson & Emil Larson</div>
-                            <div>• Sebastian Rydenfalk & Hans Martin Olsson Saebø</div>
-                            <div>• Matilda Höök & Stina Lindberg</div>
-                            <div>• Fredrik Johansson & Måns Montell</div>
-                            <div>• Robin Bergström & David Johansson</div>
-                            <div>• Fredrik Munkby & Anders Sörqvist</div>
-                            <div>• Stefan Almarlind & Ola Hertzberg</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🍽️ Mat & Dryck</h3>
-                    <p>Följande måltider ingår:</p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Frukost på hotellet (serveras från 07:30 varje dag)</li>
-                        <li>✓ Luncher enligt program</li>
-                        <li>✓ Middagar fredag och lördag</li>
-                        <li>✓ Middag söndag ombord på katamaranen</li>
-                    </ul>
-                    <p><strong>Alkohol:</strong> Företaget bjuder på två enheter alkohol per person till middagarna (t.ex. två öl eller två glas vin)</p>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">👔 Klädkod</h3>
-                    <p><strong>Walk & Talk-passen:</strong> Svala och bekväma promenadkläder och skor</p>
-                    <p><strong>Middagar:</strong> Smart casual</p>
-                    <p><strong>Katamarantur:</strong> Vindtåliga kläder, solskydd</p>
-                    <p><strong>Tips:</strong> Ha alltid med badkläder!</p>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">📱 Vad du behöver</h3>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Bekväma promenadskor (viktigt!)</li>
-                        <li>✓ Solskydd och solglasögon</li>
-                        <li>✓ Badkläder</li>
-                        <li>✓ Vindtålig jacka för båtturen</li>
-                        <li>✓ Vattenflaska för promenaderna</li>
-                        <li>✓ Väska eller ryggsäck för dagsutflykter</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🏖️ Aktiviteter</h3>
-                    <p>Konferensaktiviteter:</p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Walk & Talk-sessioner</li>
-                        <li>✓ Orientering med filmtema</li>
-                        <li>✓ Katamarantur söndag eftermiddag</li>
-                        <li>✓ Egen tid för strand och utforskning</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🧳 Packlista</h3>
-                    <p><strong>Kläder:</strong></p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Bekväma promenadkläder för 3 dagar</li>
-                        <li>✓ Svala kläder (det är varmt i september)</li>
-                        <li>✓ Vindtålig jacka</li>
-                        <li>✓ Kläder för middagar (smart casual)</li>
-                        <li>✓ Badkläder</li>
-                    </ul>
-                    
-                    <p style="margin-top: 1rem;"><strong>Skor & Tillbehör:</strong></p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Bekväma promenadskor (gärna ingångna)</li>
-                        <li>✓ Sandaler/flip-flops för strand</li>
-                        <li>✓ Skor för middagar</li>
-                        <li>✓ Solglasögon</li>
-                        <li>✓ Hatt/keps</li>
-                    </ul>
-                    
-                    <p style="margin-top: 1rem;"><strong>Övrigt:</strong></p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li>✓ Pass eller nationellt ID-kort</li>
-                        <li>✓ Solskyddsfaktor (minst SPF 30)</li>
-                        <li>✓ After sun</li>
-                        <li>✓ Vattenflaska</li>
-                        <li>✓ Dagsryggsäck</li>
-                        <li>✓ Mobiltelefon, hörlurar och laddare</li>
-                        <li>✓ Anteckningsbok och penna</li>
-                        <li>✓ Eventuell medicin</li>
-                        <li>✓ Europeiskt sjukförsäkringskort</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <!-- Plats Section -->
         <section id="plats" class="hidden">
             <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Be Live Experience Costa Palma</h2>
@@ -1347,6 +1372,22 @@
             
             // Update content
             const contents = document.querySelectorAll('.grupp-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+
+        // Praktisk info tabs - NY FUNKTION
+        function showPraktiskTab(tabId, clickedTab) {
+            // Update tabs
+            const tabs = clickedTab.parentElement.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            clickedTab.classList.add('active');
+            
+            // Update content
+            const contents = document.querySelectorAll('.praktisk-content');
             contents.forEach(content => content.classList.remove('active'));
             const targetContent = document.getElementById(tabId);
             if (targetContent) {
